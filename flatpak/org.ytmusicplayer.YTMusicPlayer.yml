@@ -1,0 +1,20 @@
+app-id: org.ytmusicplayer.YTMusicPlayer
+runtime: org.electronjs.Electron2.BaseApp
+runtime-version: '22.08'
+sdk: org.electronjs.Electron2.Sdk
+command: ytmusicplayer
+finish-args:
+  - --share=network
+  - --socket=pulseaudio
+  - --share=ipc
+  - --device=dri
+  - --socket=system-bus  # For D-Bus/MPRIS
+  - --own-name=org.mpris.MediaPlayer2.ytmusicplayer.*
+modules:
+  - name: ytmusicplayer
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 /app/YTMusicPlayer /app/bin/ytmusicplayer
+    sources:
+      - type: dir
+        path: ../out/YTMusicPlayer-linux-x64
