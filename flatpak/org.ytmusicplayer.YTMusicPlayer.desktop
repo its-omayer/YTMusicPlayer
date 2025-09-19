@@ -1,8 +1,9 @@
 [Desktop Entry]
 Name=YTMusicPlayer
-Comment=Play YouTube music
+Comment=YouTube Music Player
 Exec=ytmusicplayer
-Icon=org.ytmusicplayer.YTMusicPlayer
+Icon=ytmusicplayer
 Terminal=false
 Type=Application
-Categories=AudioVideo;Player;
+Categories=AudioVideo;Audio;Player;
+StartupWMClass=ytmusicplayer
