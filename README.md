@@ -9,7 +9,7 @@ A Linux music player inspired by Apple Music, built with Electron, using YouTube
 - Flatpak and .deb packaging
 
 ## Installation
-1. Clone: `git clone https://github.com/yourusername/YTMusicPlayer.git`
+1. Clone: `git clone https://github.com/its-omayer/YTMusicPlayer.git`
 2. Install: `pnpm install`
 3. Run: `pnpm start`
 4. Build: `pnpm make`
