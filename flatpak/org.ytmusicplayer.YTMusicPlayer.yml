@@ -1,20 +1,33 @@
-app-id: org.ytmusicplayer.YTMusicPlayer
-runtime: org.electronjs.Electron2.BaseApp
+id: org.ytmusicplayer.YTMusicPlayer
+runtime: org.freedesktop.Platform
 runtime-version: '22.08'
-sdk: org.electronjs.Electron2.Sdk
+sdk: org.freedesktop.Sdk
 command: ytmusicplayer
 finish-args:
   - --share=network
-  - --socket=pulseaudio
-  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
   - --device=dri
-  - --socket=system-bus  # For D-Bus/MPRIS
-  - --own-name=org.mpris.MediaPlayer2.ytmusicplayer.*
+  - --filesystem=home
 modules:
   - name: ytmusicplayer
     buildsystem: simple
     build-commands:
-      - install -Dm755 /app/YTMusicPlayer /app/bin/ytmusicplayer
+      - install -D ytmusicplayer /app/bin/ytmusicplayer
     sources:
       - type: dir
-        path: ../out/YTMusicPlayer-linux-x64
+        path: ./out/YTMusicPlayer
+  - name: ytmusicplayer.desktop
+    buildsystem: simple
+    build-commands:
+      - install -D ytmusicplayer.desktop /app/share/applications/org.ytmusicplayer.YTMusicPlayer.desktop
+    sources:
+      - type: file
+        path: ./flatpak/org.ytmusicplayer.YTMusicPlayer.desktop
+  - name: ytmusicplayer.png
+    buildsystem: simple
+    build-commands:
+      - install -D ytmusicplayer.png /app/share/icons/hicolor/512x512/apps/org.ytmusicplayer.YTMusicPlayer.png
+    sources:
+      - type: file
+        path: ./flatpak/ytmusicplayer.png
