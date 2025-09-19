@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=YTMusicPlayer
+Comment=Play YouTube music
+Exec=ytmusicplayer
+Icon=org.ytmusicplayer.YTMusicPlayer
+Terminal=false
+Type=Application
+Categories=AudioVideo;Player;
